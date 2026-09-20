@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fernando Naveira — Osteopatía y kinesiología en Buenos Aires</title>
+<meta name="description" content="Kinesiólogo (UBA) y osteópata en Buenos Aires. Osteopatía para deportistas de fuerza, CrossFit y dolores cotidianos. Reservá tu turno online.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+
+    --paper:   #F2F2EE;
+    --surface: #FFFFFF;
+    --ink:     #191C1B;
+    --muted:   #646B67;
+    --deep:    #0F3B37;
+    --on-deep: #EDEFE9;
+    --sand:    #E6DBC9;
+    --on-sand: #2A2A24;
+    --line:    rgba(25, 28, 27, 0.16);
+    --focus:   #0F3B37;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper:   #0F1412;
+      --surface: #171C19;
+      --ink:     #E8EAE4;
+      --muted:   #9BA39E;
+      --deep:    #0A2A27;
+      --on-deep: #E3EAE3;
+      --sand:    #2A2620;
+      --on-sand: #E8E1D3;
+      --line:    rgba(232, 234, 228, 0.18);
+      --focus:   #9CC8BE;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper:   #0F1412;
+    --surface: #171C19;
+    --ink:     #E8EAE4;
+    --muted:   #9BA39E;
+    --deep:    #0A2A27;
+    --on-deep: #E3EAE3;
+    --sand:    #2A2620;
+    --on-sand: #E8E1D3;
+    --line:    rgba(232, 234, 228, 0.18);
+    --focus:   #9CC8BE;
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  html { scroll-behavior: smooth; scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 5rem); }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+  }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 2px; }
+
+  h1, h2, h3 {
+    font-family: "Newsreader", "Iowan Old Style", Georgia, serif;
+    font-weight: 300;
+    letter-spacing: -0.015em;
+    line-height: 1.12;
+    margin: 0;
+  }
+  h1 { font-size: clamp(2.25rem, 6.5vw, 4rem); }
+  h2 { font-size: clamp(1.75rem, 4vw, 2.6rem); }
+  h3 { font-size: 1.22rem; font-weight: 400; line-height: 1.3; }
+  p  { margin: 0 0 1rem; max-width: 62ch; }
+
+  .wrap { width: min(1080px, 100% - 2.5rem); margin-inline: auto; }
+  @media (max-width: 560px) { .wrap { width: min(1080px, 100% - 2rem); } }
+
+  .band { padding-block: clamp(3.5rem, 8vw, 6rem); border-top: 1px solid var(--line); }
+  .band--plain { border-top: none; }
+
+  /* ---------- header ---------- */
+  .topbar {
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 20;
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar__inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 4rem; }
+  .brand { font-family: "Newsreader", Georgia, serif; font-size: 1.15rem; text-decoration: none; letter-spacing: -0.01em; }
+  .brand span { color: var(--muted); }
+  .topnav { display: flex; align-items: center; gap: 1.6rem; }
+  .topnav a { color: var(--muted); text-decoration: none; font-size: 0.95rem; }
+  .topnav a:hover { color: var(--ink); }
+  @media (max-width: 860px) { .topnav .topnav__link { display: none; } }
+
+  /* ---------- buttons ---------- */
+  .btn {
+    display: inline-block;
+    padding: 0.7rem 1.35rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 0.97rem;
+    font-weight: 500;
+    border: 1px solid transparent;
+    transition: opacity 0.15s ease;
+  }
+  .btn:hover { opacity: 0.85; }
+  .btn--solid { background: var(--deep); color: var(--on-deep); }
+  .btn--line  { border-color: var(--line); color: var(--ink); }
+  .btn--light { background: var(--on-deep); color: var(--deep); }
+  .btn--big   { padding: 0.95rem 2rem; font-size: 1.05rem; }
+
+  /* ---------- hero ---------- */
+  .hero { background: var(--deep); color: var(--on-deep); }
+  .hero__inner {
+    display: grid;
+    grid-template-columns: 1.35fr 0.65fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+    padding-block: clamp(3.5rem, 9vw, 7rem);
+  }
+  .hero h1 { color: var(--on-deep); max-width: 15ch; }
+  .hero__lede {
+    color: color-mix(in srgb, var(--on-deep) 78%, transparent);
+    font-size: clamp(1.02rem, 1.6vw, 1.15rem);
+    margin-top: 1.5rem;
+    max-width: 46ch;
+  }
+  .hero__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2.25rem; }
+  .hero__meta {
+    margin-top: 2.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid color-mix(in srgb, var(--on-deep) 22%, transparent);
+    color: color-mix(in srgb, var(--on-deep) 70%, transparent);
+    font-size: 0.92rem;
+    max-width: 40ch;
+  }
+  .spine { width: 100%; height: auto; max-height: 420px; display: block; }
+  .spine path, .spine line { stroke: color-mix(in srgb, var(--on-deep) 62%, transparent); fill: none; }
+  @media (prefers-reduced-motion: no-preference) {
+    .spine__draw { stroke-dasharray: 900; stroke-dashoffset: 900; animation: draw 2.2s ease-out 0.25s forwards; }
+    .spine__tick { opacity: 0; animation: fadein 0.6s ease-out forwards; }
+    @keyframes draw   { to { stroke-dashoffset: 0; } }
+    @keyframes fadein { to { opacity: 1; } }
+  }
+  @media (max-width: 800px) {
+    .hero__inner { grid-template-columns: 1fr; }
+    .hero__art { display: none; }
+  }
+
+  /* ---------- listados ---------- */
+  .lede { font-size: clamp(1.05rem, 2vw, 1.2rem); color: var(--muted); max-width: 54ch; margin-top: 1.25rem; }
+
+  .reasons { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 3rem; margin-top: 2.5rem; padding: 0; list-style: none; }
+  .reasons li { padding: 0.9rem 0; border-top: 1px solid var(--line); }
+  .reasons li:first-child, .reasons li:nth-child(2) { border-top: none; }
+  .reasons b { font-weight: 500; }
+  .reasons span { display: block; color: var(--muted); font-size: 0.93rem; }
+  @media (max-width: 720px) {
+    .reasons { grid-template-columns: 1fr; gap: 0; }
+    .reasons li:nth-child(2) { border-top: 1px solid var(--line); }
+  }
+
+  .groups { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem 3rem; margin-top: 2.75rem; }
+  .groups .reasons { grid-template-columns: 1fr; gap: 0; margin-top: 0.9rem; }
+  .groups .reasons li:nth-child(2) { border-top: 1px solid var(--line); }
+  .group-title {
+    font-family: "Archivo", Arial, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    color: var(--ink);
+  }
+  @media (max-width: 720px) { .groups { grid-template-columns: 1fr; gap: 2rem; } }
+
+  /* ---------- trayectoria ---------- */
+  .track { list-style: none; margin: 2.5rem 0 0; padding: 0; }
+  .track li { display: grid; grid-template-columns: 11rem 1fr; gap: 1.5rem; padding: 1.1rem 0; border-top: 1px solid var(--line); }
+  .track b { font-weight: 500; }
+  .track em { font-style: normal; color: var(--muted); font-size: 0.95rem; }
+  @media (max-width: 720px) { .track li { grid-template-columns: 1fr; gap: 0.3rem; } }
+
+  /* ---------- sobre mí ---------- */
+  .split { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
+  @media (max-width: 800px) { .split { grid-template-columns: 1fr; } }
+  .facts { list-style: none; margin: 2rem 0 0; padding: 0; }
+  .facts li { display: flex; justify-content: space-between; gap: 1.5rem; padding: 0.75rem 0; border-top: 1px solid var(--line); font-size: 0.95rem; }
+  .facts li span { color: var(--muted); text-align: right; }
+
+  /* ---------- sesión ---------- */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; margin-top: 3rem; }
+  .steps > div { border-top: 2px solid var(--ink); padding-top: 1rem; }
+  .steps time { display: block; font-size: 0.85rem; color: var(--muted); margin-bottom: 0.5rem; font-variant-numeric: tabular-nums; }
+  .steps p { margin: 0.6rem 0 0; color: var(--muted); font-size: 0.95rem; }
+  @media (max-width: 720px) { .steps { grid-template-columns: 1fr; gap: 1.75rem; } }
+
+  /* ---------- precios ---------- */
+  .prices { background: var(--sand); color: var(--on-sand); }
+  .prices h2 { color: var(--on-sand); }
+  .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2.75rem; }
+  .plan {
+    background: color-mix(in srgb, var(--surface) 82%, transparent);
+    border-radius: 4px;
+    padding: 1.6rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .plan h3 { margin-bottom: 0.4rem; }
+  .plan__price { font-family: "Newsreader", Georgia, serif; font-size: 1.9rem; line-height: 1; margin: 0.9rem 0 0.2rem; }
+  .plan__note { color: var(--muted); font-size: 0.9rem; margin: 0; }
+  .plan p.plan__desc { font-size: 0.95rem; color: var(--muted); margin: 0.8rem 0 0; }
+  @media (max-width: 800px) { .plans { grid-template-columns: 1fr; } }
+  .prices__fine { margin-top: 1.75rem; font-size: 0.9rem; color: var(--muted); }
+
+  /* ---------- casos ---------- */
+  .cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2.75rem; }
+  .case { border-left: 2px solid var(--line); padding-left: 1.25rem; }
+  .case p { font-family: "Newsreader", Georgia, serif; font-size: 1.15rem; line-height: 1.45; margin: 0 0 0.75rem; }
+  .case cite { font-style: normal; color: var(--muted); font-size: 0.9rem; }
+  @media (max-width: 800px) { .cases { grid-template-columns: 1fr; gap: 1.5rem; } }
+
+  /* ---------- reserva ---------- */
+  .booking { background: var(--deep); color: var(--on-deep); text-align: center; }
+  .booking h2 { color: var(--on-deep); }
+  .booking p { color: color-mix(in srgb, var(--on-deep) 76%, transparent); margin-inline: auto; }
+  .booking .btn { margin-top: 1.75rem; }
+  .booking__alt { margin-top: 1.5rem; font-size: 0.9rem; }
+  .booking__alt a { color: var(--on-deep); }
+
+  /* ---------- contacto ---------- */
+  .contact { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); }
+  @media (max-width: 720px) { .contact { grid-template-columns: 1fr; } }
+  .contact dl { margin: 0; }
+  .contact dt { color: var(--muted); font-size: 0.88rem; margin-top: 1.4rem; }
+  .contact dt:first-child { margin-top: 0; }
+  .contact dd { margin: 0.25rem 0 0; font-size: 1.05rem; }
+  .contact dd a { text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 1px; }
+  .contact dd a:hover { border-color: currentColor; }
+
+  footer { border-top: 1px solid var(--line); padding-block: 2rem 2.5rem; color: var(--muted); font-size: 0.87rem; }
+  footer p { max-width: 70ch; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar__inner">
+    <a class="brand" href="#inicio">Fernando Naveira <span>· Osteopatía</span></a>
+    <nav class="topnav">
+      <a class="topnav__link" href="#consultas">Consultas</a>
+      <a class="topnav__link" href="#deporte">Deportistas</a>
+      <a class="topnav__link" href="#sesion">La sesión</a>
+      <a class="topnav__link" href="#precios">Precios</a>
+      <a class="topnav__link" href="#contacto">Contacto</a>
+      <a class="btn btn--solid" href="https://cal.com/fernando.naveira.osteopatia" target="_blank" rel="noopener">Reservar turno</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+
+  <section class="hero">
+    <div class="wrap hero__inner">
+      <div>
+        <h1>Levanto pesas desde los catorce. Sé lo que le estás pidiendo a tu cuerpo.</h1>
+        <p class="hero__lede">Soy Fernando Naveira, kinesiólogo formado en la UBA y osteópata. Acompañé a la selección argentina de levantamiento de pesas en competencia y trabajo con equipos de CrossFit del país. Atiendo deportistas y también a quien llega con un dolor que no lo deja entrenar ni dormir.</p>
+        <div class="hero__actions">
+          <a class="btn btn--light btn--big" href="https://cal.com/fernando.naveira.osteopatia" target="_blank" rel="noopener">Reservar un turno</a>
+          <a class="btn btn--big" style="border:1px solid rgba(255,255,255,.28); color:var(--on-deep);" href="#consultas">Ver motivos de consulta</a>
+        </div>
+        <p class="hero__meta">Consultorio en Buenos Aires · Sesiones de 50 minutos · Deportistas de fuerza y público general</p>
+      </div>
+      <div class="hero__art" aria-hidden="true">
+        <svg class="spine" viewBox="0 0 180 420" xmlns="http://www.w3.org/2000/svg">
+          <path class="spine__draw" d="M92 10 C 120 70, 58 130, 86 196 C 114 262, 60 314, 88 410"
+                stroke-width="1.5" stroke-linecap="round"/>
+          <g stroke-width="1.2" stroke-linecap="round">
+            <line class="spine__tick" x1="68" y1="44"  x2="116" y2="40"  style="animation-delay:.7s"/>
+            <line class="spine__tick" x1="62" y1="78"  x2="110" y2="76"  style="animation-delay:.85s"/>
+            <line class="spine__tick" x1="58" y1="112" x2="104" y2="114" style="animation-delay:1s"/>
+            <line class="spine__tick" x1="62" y1="148" x2="110" y2="152" style="animation-delay:1.15s"/>
+            <line class="spine__tick" x1="70" y1="186" x2="118" y2="192" style="animation-delay:1.3s"/>
+            <line class="spine__tick" x1="72" y1="226" x2="120" y2="230" style="animation-delay:1.45s"/>
+            <line class="spine__tick" x1="64" y1="264" x2="112" y2="266" style="animation-delay:1.6s"/>
+            <line class="spine__tick" x1="58" y1="302" x2="106" y2="300" style="animation-delay:1.75s"/>
+            <line class="spine__tick" x1="62" y1="340" x2="110" y2="342" style="animation-delay:1.9s"/>
+            <line class="spine__tick" x1="70" y1="378" x2="118" y2="382" style="animation-delay:2.05s"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--plain" id="consultas">
+    <div class="wrap">
+      <h2>Motivos de consulta frecuentes</h2>
+      <p class="lede">Dos caminos distintos llegan al mismo lugar: un cuerpo que dejó de moverse como debería.</p>
+      <div class="groups">
+        <div>
+          <h3 class="group-title">Si entrenás fuerza</h3>
+          <ul class="reasons">
+            <li><b>Hombro que molesta en overhead</b><span>Press militar, snatch o jerk: dolor, pinzamiento o pérdida de estabilidad arriba de la cabeza.</span></li>
+            <li><b>Cadera y tobillo que frenan la sentadilla</b><span>No llegás a la profundidad de siempre o el talón se despega.</span></li>
+            <li><b>Zona lumbar en peso muerto</b><span>Molestia al despegar la barra o al día siguiente de una sesión pesada.</span></li>
+            <li><b>Muñeca y codo en front rack</b><span>Dolor al sostener la barra, clean, thruster o trabajo de anillas.</span></li>
+            <li><b>Puesta a punto antes de competir</b><span>Trabajo en la semana previa y durante el torneo, entre intentos.</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="group-title">Si llegás por un dolor cotidiano</h3>
+          <ul class="reasons">
+            <li><b>Lumbalgia y contracturas cervicales</b><span>Muchas horas sentado, rigidez al levantarte, dolor que va y viene.</span></li>
+            <li><b>Dolores de cabeza y tensión mandibular</b><span>Cefaleas tensionales, bruxismo, presión alrededor de los ojos.</span></li>
+            <li><b>Movilidad limitada</b><span>Hombro, cadera o cuello que no llegan al rango de siempre.</span></li>
+            <li><b>Vuelta al movimiento</b><span>Después de una lesión, una cirugía o años sin actividad física.</span></li>
+            <li><b>Querés empezar a entrenar sin lastimarte</b><span>Evaluamos de dónde partís y qué conviene reforzar primero.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="sobre-mi">
+    <div class="wrap split">
+      <div>
+        <h2>Sobre mí</h2>
+      </div>
+      <div>
+        <p>Empecé a levantar pesas a los catorce años. Antes de estudiar nada, ya conocía de primera mano lo que es entrenar con un hombro que no responde y querer volver a la barra igual. Esa experiencia es la que hoy pongo del otro lado de la camilla.</p>
+        <p>Estudié kinesiología en la UBA y después me formé como osteópata en la Escuela de Osteopatía Argentina. La kinesiología me dio la lectura del movimiento y la carga; la osteopatía, las manos para trabajar sobre articulaciones y tejidos. Las dos cosas juntas explican cómo evalúo: nunca empiezo por el lugar que duele, sino por entender qué gesto lo está produciendo.</p>
+        <p>Acompañé a la selección argentina de levantamiento de pesas como osteópata en varios torneos y trabajo con equipos de CrossFit del país. Atender en competencia enseña algo que el consultorio no: a resolver con el atleta a punto de salir a la plataforma. Pero la mayoría de quienes vienen no compiten, y el criterio es el mismo — entender qué le estás pidiendo al cuerpo y devolverle el margen para hacerlo.</p>
+        <ul class="facts">
+          <li>Formación <span>Kinesiología, UBA · Escuela de Osteopatía Argentina</span></li>
+          <li>Deporte <span>Levantamiento de pesas desde los 14 años</span></li>
+          <li>Atención <span>Consultorio en Buenos Aires</span></li>
+          <li>Duración <span>50 minutos por sesión</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="deporte">
+    <div class="wrap">
+      <h2>En competencia</h2>
+      <p class="lede">Buena parte de mi trabajo pasa fuera del consultorio, al costado de la plataforma o del box.</p>
+      <ul class="track">
+        <li><b>Selección argentina de levantamiento de pesas</b><em>Osteópata del equipo en varios torneos: preparación previa, trabajo entre intentos y recuperación post competencia.</em></li>
+        <li><b>Equipos de CrossFit</b><em>Acompañamiento a equipos de primer nivel del país, tanto en temporada de entrenamiento como durante las competencias.</em></li>
+        <li><b>Atletas individuales</b><em>Desde quienes compiten hasta quienes entrenan cuatro veces por semana y no están dispuestos a parar tres meses.</em></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="band" id="sesion">
+    <div class="wrap">
+      <h2>Cómo es una sesión</h2>
+      <p class="lede">Una hora, tres momentos. Venís con ropa cómoda y no hace falta que traigas nada, aunque si tenés estudios recientes, sumalos.</p>
+      <div class="steps">
+        <div>
+          <time>Primeros 15 minutos</time>
+          <h3>Evaluación</h3>
+          <p>Hablamos de tu historia, tus síntomas y tu rutina. Después evalúo postura, movilidad y puntos de tensión con pruebas manuales.</p>
+        </div>
+        <div>
+          <time>Siguientes 30 minutos</time>
+          <h3>Tratamiento manual</h3>
+          <p>Técnicas suaves sobre articulaciones, músculos y tejidos, elegidas según lo que encontré. Te explico qué estoy haciendo en cada paso.</p>
+        </div>
+        <div>
+          <time>Últimos 5 minutos</time>
+          <h3>Pautas para tu casa</h3>
+          <p>Dos o tres ejercicios simples y ajustes de hábitos. Definimos juntos si hace falta una nueva sesión y cuándo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band prices" id="precios">
+    <div class="wrap">
+      <h2>Servicios y precios</h2>
+      <p class="lede" style="color:inherit; opacity:.75;">Precios claros, sin sorpresas. El pago es al final de cada sesión.</p>
+      <div class="plans">
+        <div class="plan">
+          <h3>Primera consulta</h3>
+          <p class="plan__price">Consultar</p>
+          <p class="plan__note">60 minutos</p>
+          <p class="plan__desc">Evaluación completa, tratamiento y plan de trabajo. Es el punto de partida para cualquier motivo de consulta.</p>
+        </div>
+        <div class="plan">
+          <h3>Sesión de seguimiento</h3>
+          <p class="plan__price">Consultar</p>
+          <p class="plan__note">50 minutos</p>
+          <p class="plan__desc">Continuidad del tratamiento, con ajustes según cómo venís respondiendo entre sesión y sesión.</p>
+        </div>
+        <div class="plan">
+          <h3>Deportistas y equipos</h3>
+          <p class="plan__price">A convenir</p>
+          <p class="plan__note">Por temporada o por competencia</p>
+          <p class="plan__desc">Acompañamiento a atletas y equipos: trabajo previo, asistencia durante el torneo y recuperación. Escribime y armamos la propuesta.</p>
+        </div>
+      </div>
+      <p class="prices__fine">La osteopatía no reemplaza el diagnóstico ni el tratamiento médico. Si hay una condición que requiere estudios o atención médica, te lo voy a decir y te derivo.</p>
+    </div>
+  </section>
+
+  <section class="band" id="casos">
+    <div class="wrap">
+      <h2>Qué dicen quienes ya vinieron</h2>
+      <div class="cases">
+        <blockquote class="case">
+          <p>Hacía meses que el hombro me frenaba el snatch. Fernando entendió el gesto enseguida, porque lo hace él también.</p>
+          <cite>Testimonio a completar</cite>
+        </blockquote>
+        <blockquote class="case">
+          <p>Después de años de dolor lumbar, fue la primera vez que alguien me miró el cuerpo entero y no solo la espalda.</p>
+          <cite>Testimonio a completar</cite>
+        </blockquote>
+        <blockquote class="case">
+          <p>Lo tuvimos con el equipo durante toda la competencia. Saber que estaba ahí cambia cómo salís a competir.</p>
+          <cite>Testimonio a completar</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="band booking" id="reservar">
+    <div class="wrap">
+      <h2>Reservá tu turno</h2>
+      <p>Elegí día y horario en el calendario. Vas a recibir la confirmación por mail y un recordatorio antes de la sesión.</p>
+      <a class="btn btn--light btn--big" href="https://cal.com/fernando.naveira.osteopatia" target="_blank" rel="noopener">Ver horarios disponibles</a>
+      <p class="booking__alt">¿Preferís coordinar por mensaje? Escribime a <a href="mailto:prenotamiguillermo@gmail.com">prenotamiguillermo@gmail.com</a></p>
+    </div>
+  </section>
+
+  <section class="band" id="contacto">
+    <div class="wrap contact">
+      <div>
+        <h2>Contacto</h2>
+        <p class="lede">Si tenés dudas sobre si la osteopatía es lo indicado para tu caso, escribime y lo vemos antes de reservar.</p>
+      </div>
+      <div>
+        <dl>
+          <dt>Mail</dt>
+          <dd><a href="mailto:prenotamiguillermo@gmail.com">prenotamiguillermo@gmail.com</a></dd>
+          <dt>WhatsApp</dt>
+          <dd><a href="https://wa.me/5491100000000" target="_blank" rel="noopener">+54 9 11 0000-0000</a></dd>
+          <dt>Consultorio</dt>
+          <dd>Dirección a completar, CABA</dd>
+          <dt>Instagram</dt>
+          <dd><a href="https://instagram.com/naveira_fernando" target="_blank" rel="noopener">@naveira_fernando</a></dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Fernando Naveira · Kinesiología y osteopatía · Buenos Aires, Argentina</p>
+    <p>La información de este sitio es orientativa y no constituye un diagnóstico. Ante un dolor agudo, una lesión reciente o cualquier síntoma que te preocupe, consultá primero con un médico.</p>
+  </div>
+</footer>
+
+</body>
+</html>
