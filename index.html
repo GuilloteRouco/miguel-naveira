@@ -123,8 +123,21 @@
     color: var(--muted);
     cursor: pointer;
     line-height: 1.4;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .langswitch svg {
+    width: 18px;
+    height: 13px;
+    display: block;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    opacity: 0.55;
+    transition: opacity 0.15s ease;
   }
   .langswitch button[aria-pressed="true"] { background: var(--graphite); color: var(--on-graphite); }
+  .langswitch button[aria-pressed="true"] svg { opacity: 1; }
+  .langswitch button:hover svg { opacity: 0.85; }
 
   .btn {
     display: inline-block;
@@ -277,8 +290,24 @@
       <a class="topnav__link" href="#perfil" data-en="Profile">Perfil</a>
       <a class="topnav__link" href="#contacto" data-en="Contact">Contacto</a>
       <div class="langswitch" role="group" aria-label="Idioma / Language">
-        <button type="button" data-lang-btn="es" aria-pressed="true">ES</button>
-        <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+        <button type="button" data-lang-btn="es" aria-pressed="true" title="Español">
+          <svg viewBox="0 0 20 14" aria-hidden="true">
+            <rect width="20" height="14" fill="#75AADB"/>
+            <rect y="4.67" width="20" height="4.66" fill="#FFFFFF"/>
+            <circle cx="10" cy="7" r="1.45" fill="#F6B40E"/>
+          </svg>
+          ES
+        </button>
+        <button type="button" data-lang-btn="en" aria-pressed="false" title="English">
+          <svg viewBox="0 0 20 14" aria-hidden="true">
+            <rect width="20" height="14" fill="#012169"/>
+            <path d="M0 0 L20 14 M20 0 L0 14" stroke="#FFFFFF" stroke-width="3"/>
+            <path d="M0 0 L20 14 M20 0 L0 14" stroke="#C8102E" stroke-width="1.6"/>
+            <path d="M10 0 V14 M0 7 H20" stroke="#FFFFFF" stroke-width="4.6"/>
+            <path d="M10 0 V14 M0 7 H20" stroke="#C8102E" stroke-width="2.6"/>
+          </svg>
+          EN
+        </button>
       </div>
       <a class="btn btn--solid" href="https://cal.com/miguel.naveira.consultoria" target="_blank" rel="noopener" data-en="Book a call">Agendar llamada</a>
     </nav>
@@ -573,17 +602,15 @@
         <p data-en="Pick the day and time that suit you best. You will receive the confirmation and the invitation by email.">Elija directamente el día y el horario que le queden cómodos. Va a recibir la confirmación y la invitación por mail.</p>
         <p style="margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:0.7rem;">
           <a class="btn btn--signal btn--big" href="https://cal.com/miguel.naveira.consultoria" target="_blank" rel="noopener" data-en="See available times">Ver horarios disponibles</a>
-          <a class="btn btn--ghost btn--big" href="mailto:miguelnaveira@gmail.com" data-en="Send an email">Escribir un mail</a>
+          <a class="btn btn--ghost btn--big" href="mailto:naveiraconsulting@gmail.com" data-en="Send an email">Escribir un mail</a>
         </p>
       </div>
       <div>
         <dl>
           <dt class="mono" data-en="Calendar">Agenda</dt>
           <dd><a href="https://cal.com/miguel.naveira.consultoria" target="_blank" rel="noopener" data-en="Book a 30-minute call">Reservar una llamada de 30 min</a></dd>
-          <dt class="mono" data-en="Phone and WhatsApp">Teléfono y WhatsApp</dt>
-          <dd><a href="https://wa.me/5491141475168" target="_blank" rel="noopener">+54 9 11 4147-5168</a></dd>
           <dt class="mono" data-en="Email">Mail</dt>
-          <dd><a href="mailto:miguelnaveira@gmail.com">miguelnaveira@gmail.com</a></dd>
+          <dd><a href="mailto:naveiraconsulting@gmail.com">naveiraconsulting@gmail.com</a></dd>
           <dt class="mono">LinkedIn</dt>
           <dd><a href="https://www.linkedin.com/" target="_blank" rel="noopener">Miguel Ángel Naveira</a></dd>
           <dt class="mono" data-en="Based in">Base</dt>
